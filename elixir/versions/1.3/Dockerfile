@@ -1,3 +1,8 @@
+# elixir v1.3
+#
+# docker run --rm pottava/elixir:1.3 mix help
+# docker run --rm -it pottava/elixir:1.3 iex
+
 FROM pottava/erlang:18
 
 ENV ELIXIR_VERSION=1.3.2
@@ -11,3 +16,5 @@ RUN apk --no-cache add --virtual build-dependencies wget ca-certificates \
     && rm -rf /etc/ssl
 
 ENV PATH=$PATH:/opt/elixir-${ELIXIR_VERSION}/bin
+
+CMD ["mix"]
