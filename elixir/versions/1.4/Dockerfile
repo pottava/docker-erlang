@@ -1,11 +1,11 @@
-# elixir v1.3
+# elixir v1.4
 #
-# docker run --rm pottava/elixir:1.3 mix help
-# docker run --rm -it pottava/elixir:1.3 iex
+# docker run --rm pottava/elixir:1.4
+# docker run --rm -it pottava/elixir:1.4 iex
 
-FROM pottava/erlang:18
+FROM pottava/erlang:19
 
-ENV ELIXIR_VERSION=1.3.2
+ENV ELIXIR_VERSION=1.4.4
 
 RUN apk --no-cache add --virtual build-dependencies wget ca-certificates \
     && wget --no-check-certificate https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip \
@@ -17,4 +17,4 @@ RUN apk --no-cache add --virtual build-dependencies wget ca-certificates \
 
 ENV PATH=$PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
-CMD ["mix"]
+CMD ["mix", "help"]
